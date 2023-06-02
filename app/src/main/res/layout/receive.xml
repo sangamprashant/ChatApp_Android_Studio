@@ -9,7 +9,7 @@
         android:id="@+id/txt_receive_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/edtbackground"
+        android:background="@drawable/messagebox"
         android:padding="10dp"
         android:text="This is a receive message"
         android:textSize="18sp" />

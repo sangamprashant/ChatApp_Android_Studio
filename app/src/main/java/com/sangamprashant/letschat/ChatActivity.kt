@@ -60,7 +60,8 @@ class ChatActivity : AppCompatActivity() {
                     messageList.add(message!!)
                 }
                 messageAdapter.notifyDataSetChanged()
-
+                // Scroll to the latest chat
+                chatRecyclerView.scrollToPosition(messageList.size - 1)
             }
 
             override fun onCancelled(error: DatabaseError) {

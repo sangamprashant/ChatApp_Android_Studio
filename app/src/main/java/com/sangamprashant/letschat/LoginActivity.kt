@@ -22,6 +22,14 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // Check if the user is already logged in
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the LoginActivity if the user is already logged in
+        }
+
         supportActionBar?.hide()
 
         mAuth = FirebaseAuth.getInstance()
