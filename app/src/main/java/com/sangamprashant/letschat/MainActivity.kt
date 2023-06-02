@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         mDbRef=FirebaseDatabase.getInstance().getReference()
 
         userList = ArrayList()
-        adapter = UserAdapter(this, userList.toTypedArray())
+        adapter = UserAdapter(this, userList)
         userRecyclerView = findViewById(R.id.userRecyclerView)
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
@@ -42,11 +42,11 @@ class MainActivity : AppCompatActivity() {
                 userList.clear()
                 for (postSnapshot in snapshot.children) {
                     // Retrieve the data from the snapshot
-                    val user = postSnapshot.getValue(User::class.java)
-                    if (user != null&&mAuth.currentUser?.uid!=user?.uid) {
+                    val searchedUser = postSnapshot.getValue(User::class.java)
+                    if (searchedUser != null&&mAuth.currentUser?.uid!=searchedUser?.uid) {
                         // Do something with the user data
                         // For example, add it to your userList
-                        userList.add(user)
+                        userList.add(searchedUser)
                     }
                 }
                 // Notify the adapter that the data has changed

@@ -46,6 +46,7 @@
         android:layout_below="@id/etxEmail"
         android:layout_marginTop="10dp"
         android:hint="Password"
+        android:inputType="textPassword"
         android:background="@drawable/edtbackground"
         android:paddingLeft="15dp"
         android:layout_marginLeft="20dp"
