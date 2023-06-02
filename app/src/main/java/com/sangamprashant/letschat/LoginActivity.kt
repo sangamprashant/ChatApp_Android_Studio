@@ -50,7 +50,9 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val intent =Intent(this@LoginActivity, MainActivity::class.java)
+                    finish()
                     startActivity(intent)
+                    Toast.makeText(this@LoginActivity,"Logged in successfully.", Toast.LENGTH_SHORT).show()
                 } else {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(this@LoginActivity,"User does not exist.", Toast.LENGTH_SHORT).show()

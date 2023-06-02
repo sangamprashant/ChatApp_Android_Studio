@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var mAuth:FirebaseAuth
@@ -16,6 +18,7 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var edtPassword: EditText
     private lateinit var btnLogin: TextView
     private lateinit var btnSignup: Button
+    private lateinit var mDbRef:DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +58,7 @@ class SignupActivity : AppCompatActivity() {
                     //code for jumping to home
                     addUserToDataBase(name,email,mAuth.currentUser?.uid!!)
                     val intent =Intent(this@SignupActivity, MainActivity::class.java)
+                    finish()
                     startActivity(intent)
                 } else {
                     if (password.length<6){
@@ -69,7 +73,12 @@ class SignupActivity : AppCompatActivity() {
             }
     }
 
-    private fun addUserToDataBase(name:String,email:String,udi:String){
-
+    private fun addUserToDataBase(name:String,email:String,uid:String){
+        mDbRef=FirebaseDatabase.getInstance().getReference()
+        mDbRef.child("user").child(uid).setValue(User(name,email,uid))
     }
+
+
+
+
 }
