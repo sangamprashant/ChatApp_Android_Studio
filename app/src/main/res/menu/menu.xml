@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/logout" android:title="Log out"/>
+    <item
+        android:id="@+id/UploadPic"
+        android:title="Upload Profile Photo"/>
+    <item
+        android:id="@+id/RemovePic"
+        android:title="Remove Profile Photo"
+        />
+    <item
+        android:id="@+id/logout"
+        android:title="Log out"
+
+        />
 </menu>
